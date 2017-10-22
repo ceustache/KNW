@@ -33,9 +33,14 @@ sum += reading;
              r.connect();
             //Get the average thermistor reading
             int thermistorReading = getThermistorReading();
+            //get the temp
+            double slope=-4.550703907;
+            double intercept=794.5506019;
+            double temp=(thermistorReading-intercept)/slope;
             //Print the results
             System.out.println("The probe read the value: " + thermistorReading);
             System.out.println("In volts: " + (thermistorReading * (5.0/1023.0)));
+            System.out.println("In degrees c: " + temp);
     
     }
     
