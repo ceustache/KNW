@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package thermistor;
+
 import rxtxrobot.*; 
 
 /**
@@ -21,7 +16,7 @@ public class Thermistor {
     for (int i = 0; i < readingCount; i++) {
 //Refresh the analog pins so we get new readings
 r.refreshAnalogPins();
-int reading = r.getAnalogPin(0).getValue();
+int reading = r.getAnalogPin(5).getValue();
 sum += reading;
     }//Return the average reading
     return sum / readingCount;
@@ -29,7 +24,7 @@ sum += reading;
     public static RXTXRobot r; //Create RXTXRobot object 
     public static void main(String[] args) {
       r = new ArduinoNano();
-             r.setPort("COM7");
+             r.setPort("COM5");
              r.connect();
             //Get the average thermistor reading
             int thermistorReading = getThermistorReading();
